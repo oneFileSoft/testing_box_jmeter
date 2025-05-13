@@ -15,7 +15,7 @@
         <boolProp name="ThreadGroup.same_user_on_next_iteration">false</boolProp>
         <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
         <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller">
-          <stringProp name="LoopController.loops">1</stringProp>
+          <stringProp name="LoopController.loops">2</stringProp>
           <boolProp name="LoopController.continue_forever">false</boolProp>
         </elementProp>
       </ThreadGroup>
@@ -72,7 +72,7 @@
             <intProp name="Assertion.test_type">8</intProp>
           </ResponseAssertion>
           <hashTree/>
-          <JSONPathAssertion guiclass="JSONPathAssertionGui" testclass="JSONPathAssertion" testname="JSON Assertion  - $.expenses.length()" enabled="true">
+          <JSONPathAssertion guiclass="JSONPathAssertionGui" testclass="JSONPathAssertion" testname="JSON Assertion  - $.expenses.length()">
             <stringProp name="JSON_PATH">$.expenses.length()</stringProp>
             <stringProp name="EXPECTED_VALUE">2</stringProp>
             <boolProp name="JSONVALIDATION">true</boolProp>
@@ -82,7 +82,7 @@
             <stringProp name="TestPlan.comments">contain {&quot;success&quot;:true,&quot;expenses&quot;:[{&quot;id&quot;:159,&quot;userId&quot;:46,&quot;transDescr&quot;:&quot;descriptions 2 for Test&quot;,&quot;transDate&quot;:&quot;2025-05-02T12:33:48.000Z&quot;,&quot;transTotal&quot;:83.73},{&quot;id&quot;:131,&quot;userId&quot;:46,&quot;transDescr&quot;:&quot;descriptions 1 for Test&quot;,&quot;transDate&quot;:&quot;2025-05-02T12:33:33.000Z&quot;,&quot;transTotal&quot;:107.81}]}</stringProp>
           </JSONPathAssertion>
           <hashTree/>
-          <JSONPathAssertion guiclass="JSONPathAssertionGui" testclass="JSONPathAssertion" testname="JSON Assertion - check transDescr" enabled="true">
+          <JSONPathAssertion guiclass="JSONPathAssertionGui" testclass="JSONPathAssertion" testname="JSON Assertion - check transDescr">
             <stringProp name="JSON_PATH">$.expenses[*].transDescr</stringProp>
             <stringProp name="EXPECTED_VALUE">.*descriptions 1 for Test.*</stringProp>
             <boolProp name="JSONVALIDATION">true</boolProp>
