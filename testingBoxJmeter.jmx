@@ -39,7 +39,7 @@
             </elementProp>
             <elementProp name="transDescr" elementType="Argument">
               <stringProp name="Argument.name">transDescr</stringProp>
-              <stringProp name="Argument.value">${__RandomString(10,abcdefghijklmnopqrstuvwxyz,transDescr)}</stringProp>
+              <stringProp name="Argument.value">Jmeter - ${__RandomString(10,abcdefghijklmnopqrstuvwxyz,transDescr)} </stringProp>
               <stringProp name="Argument.metadata">=</stringProp>
             </elementProp>
           </collectionProp>
@@ -59,7 +59,7 @@
           </collectionProp>
         </HeaderManager>
         <hashTree/>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="HTTP Request - GET( existing User)">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="HTTP Request - GET( existing User)" enabled="true">
           <stringProp name="HTTPSampler.domain">${BASE_URL}</stringProp>
           <stringProp name="HTTPSampler.protocol">${HTP}</stringProp>
           <stringProp name="HTTPSampler.path">/getExpenses?userId=46</stringProp>
@@ -72,7 +72,7 @@
           </elementProp>
         </HTTPSamplerProxy>
         <hashTree>
-          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response-Status-Code">
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response-Status-Code" enabled="true">
             <collectionProp name="Asserion.test_strings">
               <stringProp name="49586">200</stringProp>
             </collectionProp>
@@ -82,7 +82,7 @@
             <intProp name="Assertion.test_type">8</intProp>
           </ResponseAssertion>
           <hashTree/>
-          <JSR223Assertion guiclass="TestBeanGUI" testclass="JSR223Assertion" testname="JSR223 Assertion - expenses size &gt; 0">
+          <JSR223Assertion guiclass="TestBeanGUI" testclass="JSR223Assertion" testname="JSR223 Assertion - expenses size &gt; 0" enabled="true">
             <stringProp name="scriptLanguage">groovy</stringProp>
             <stringProp name="parameters"></stringProp>
             <stringProp name="filename"></stringProp>
@@ -99,7 +99,7 @@ if (expensesCount &lt; 0) {
 }</stringProp>
           </JSR223Assertion>
           <hashTree/>
-          <JSONPathAssertion guiclass="JSONPathAssertionGui" testclass="JSONPathAssertion" testname="JSON Assertion - check transDescr">
+          <JSONPathAssertion guiclass="JSONPathAssertionGui" testclass="JSONPathAssertion" testname="JSON Assertion - check transDescr" enabled="true">
             <stringProp name="JSON_PATH">$.expenses[*].transDescr</stringProp>
             <stringProp name="EXPECTED_VALUE">.*descriptions 1 for Test.*</stringProp>
             <boolProp name="JSONVALIDATION">true</boolProp>
@@ -110,7 +110,7 @@ if (expensesCount &lt; 0) {
           </JSONPathAssertion>
           <hashTree/>
         </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="HTTP Request - POST (User not found)">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="HTTP Request - POST (User not found)" enabled="true">
           <stringProp name="HTTPSampler.domain">${BASE_URL}</stringProp>
           <stringProp name="HTTPSampler.protocol">${HTP}</stringProp>
           <stringProp name="HTTPSampler.path">/insertExpense</stringProp>
@@ -134,7 +134,7 @@ if (expensesCount &lt; 0) {
           </elementProp>
         </HTTPSamplerProxy>
         <hashTree>
-          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="RespAst:responseCode=404">
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="RespAst:responseCode=404" enabled="true">
             <collectionProp name="Asserion.test_strings">
               <stringProp name="51512">404</stringProp>
             </collectionProp>
@@ -144,7 +144,7 @@ if (expensesCount &lt; 0) {
             <intProp name="Assertion.test_type">8</intProp>
           </ResponseAssertion>
           <hashTree/>
-          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="RespAst:User not found+Ignore Status">
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="RespAst:User not found+Ignore Status" enabled="true">
             <collectionProp name="Asserion.test_strings">
               <stringProp name="695768227">{&quot;success&quot;:false,&quot;message&quot;:&quot;User not found&quot;}</stringProp>
             </collectionProp>
@@ -192,7 +192,7 @@ if (expensesCount &lt; 0) {
           <stringProp name="filename"></stringProp>
         </ResultCollector>
         <hashTree/>
-        <ResultCollector guiclass="SummaryReport" testclass="ResultCollector" testname="Summary Report">
+        <ResultCollector guiclass="SummaryReport" testclass="ResultCollector" testname="Summary Report" enabled="true">
           <boolProp name="ResultCollector.error_logging">true</boolProp>
           <objProp>
             <name>saveConfig</name>
@@ -229,7 +229,7 @@ if (expensesCount &lt; 0) {
           <stringProp name="filename"></stringProp>
         </ResultCollector>
         <hashTree/>
-        <ResultCollector guiclass="StatVisualizer" testclass="ResultCollector" testname="Aggregate Report">
+        <ResultCollector guiclass="StatVisualizer" testclass="ResultCollector" testname="Aggregate Report" enabled="true">
           <boolProp name="ResultCollector.error_logging">false</boolProp>
           <objProp>
             <name>saveConfig</name>
@@ -267,7 +267,7 @@ if (expensesCount &lt; 0) {
           <boolProp name="ResultCollector.success_only_logging">true</boolProp>
         </ResultCollector>
         <hashTree/>
-        <ResultCollector guiclass="TableVisualizer" testclass="ResultCollector" testname="View Results in Table">
+        <ResultCollector guiclass="TableVisualizer" testclass="ResultCollector" testname="View Results in Table" enabled="true">
           <boolProp name="ResultCollector.error_logging">false</boolProp>
           <objProp>
             <name>saveConfig</name>
@@ -305,7 +305,7 @@ if (expensesCount &lt; 0) {
           <boolProp name="ResultCollector.success_only_logging">true</boolProp>
         </ResultCollector>
         <hashTree/>
-        <ResultCollector guiclass="StatGraphVisualizer" testclass="ResultCollector" testname="Aggregate Graph">
+        <ResultCollector guiclass="StatGraphVisualizer" testclass="ResultCollector" testname="Aggregate Graph" enabled="true">
           <boolProp name="ResultCollector.error_logging">false</boolProp>
           <objProp>
             <name>saveConfig</name>
@@ -342,7 +342,7 @@ if (expensesCount &lt; 0) {
           <stringProp name="filename"></stringProp>
         </ResultCollector>
         <hashTree/>
-        <ConstantThroughputTimer guiclass="TestBeanGUI" testclass="ConstantThroughputTimer" testname="Constant Throughput Timer">
+        <ConstantThroughputTimer guiclass="TestBeanGUI" testclass="ConstantThroughputTimer" testname="Constant Throughput Timer" enabled="true">
           <intProp name="calcMode">1</intProp>
           <doubleProp>
             <name>throughput</name>
@@ -351,7 +351,7 @@ if (expensesCount &lt; 0) {
           </doubleProp>
         </ConstantThroughputTimer>
         <hashTree/>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="HTTP Request - POST (invalid amount)">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="HTTP Request - POST (invalid amount)" enabled="true">
           <stringProp name="HTTPSampler.domain">${BASE_URL}</stringProp>
           <stringProp name="HTTPSampler.protocol">${HTP}</stringProp>
           <stringProp name="HTTPSampler.path">/insertExpense</stringProp>
@@ -375,7 +375,7 @@ if (expensesCount &lt; 0) {
           </elementProp>
         </HTTPSamplerProxy>
         <hashTree>
-          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="RespAst:responseCode=500">
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="RespAst:responseCode=500" enabled="true">
             <collectionProp name="Asserion.test_strings">
               <stringProp name="52469">500</stringProp>
             </collectionProp>
@@ -385,7 +385,7 @@ if (expensesCount &lt; 0) {
             <intProp name="Assertion.test_type">8</intProp>
           </ResponseAssertion>
           <hashTree/>
-          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="RespAst: ErrorInsertingUserToDb+Ignore Status">
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="RespAst: ErrorInsertingUserToDb+Ignore Status" enabled="true">
             <collectionProp name="Asserion.test_strings">
               <stringProp name="1575071073">{&quot;success&quot;:false,&quot;message&quot;:&quot;Error inserting user expences to DB&quot;,&quot;error&quot;:&quot;Unknown column &apos;NaN&apos; in &apos;VALUES&apos;&quot;}</stringProp>
             </collectionProp>
@@ -396,7 +396,7 @@ if (expensesCount &lt; 0) {
           </ResponseAssertion>
           <hashTree/>
         </hashTree>
-        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="Simple Controller - E2E"/>
+        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="Simple Controller - E2E" enabled="true"/>
         <hashTree>
           <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="HTTP Request - POST - Insert new User Expence">
             <stringProp name="HTTPSampler.domain">${BASE_URL}</stringProp>
@@ -422,7 +422,7 @@ if (expensesCount &lt; 0) {
             </elementProp>
           </HTTPSamplerProxy>
           <hashTree>
-            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="RespAst:responseCode=200">
+            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="RespAst:responseCode=200" enabled="true">
               <collectionProp name="Asserion.test_strings">
                 <stringProp name="49586">200</stringProp>
               </collectionProp>
@@ -450,7 +450,7 @@ if (expensesCount &lt; 0) {
             </JSONPostProcessor>
             <hashTree/>
           </hashTree>
-          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="HTTP Request - Get inserted Expences">
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="HTTP Request - Get inserted Expences" enabled="true">
             <stringProp name="HTTPSampler.domain">${BASE_URL}</stringProp>
             <stringProp name="HTTPSampler.protocol">${HTP}</stringProp>
             <stringProp name="HTTPSampler.path">/getExpenses?userId=46</stringProp>
@@ -463,7 +463,7 @@ if (expensesCount &lt; 0) {
             </elementProp>
           </HTTPSamplerProxy>
           <hashTree>
-            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="RespAsertion: responseCode=200">
+            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="RespAsertion: responseCode=200" enabled="true">
               <collectionProp name="Asserion.test_strings">
                 <stringProp name="49586">200</stringProp>
               </collectionProp>
@@ -473,7 +473,7 @@ if (expensesCount &lt; 0) {
               <intProp name="Assertion.test_type">8</intProp>
             </ResponseAssertion>
             <hashTree/>
-            <JSONPathAssertion guiclass="JSONPathAssertionGui" testclass="JSONPathAssertion" testname="JSON Assertion - check transDescr">
+            <JSONPathAssertion guiclass="JSONPathAssertionGui" testclass="JSONPathAssertion" testname="JSON Assertion - check transDescr" enabled="true">
               <stringProp name="JSON_PATH">$.expenses[*].transDescr</stringProp>
               <stringProp name="EXPECTED_VALUE">.*${transDescr}.*</stringProp>
               <boolProp name="JSONVALIDATION">true</boolProp>
@@ -506,7 +506,7 @@ if (expensesCount &lt; 0) {
             </elementProp>
           </HTTPSamplerProxy>
           <hashTree>
-            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="RespAst: delete - responseCode=200">
+            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="RespAst: delete - responseCode=200" enabled="true">
               <collectionProp name="Asserion.test_strings">
                 <stringProp name="49586">200</stringProp>
               </collectionProp>
@@ -516,7 +516,7 @@ if (expensesCount &lt; 0) {
               <intProp name="Assertion.test_type">8</intProp>
             </ResponseAssertion>
             <hashTree/>
-            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="RespAst: ErrorInsertingUserToDb+Ignore Status">
+            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="RespAst: ErrorInsertingUserToDb+Ignore Status" enabled="true">
               <collectionProp name="Asserion.test_strings">
                 <stringProp name="-310317770">Expense deleted successfully</stringProp>
               </collectionProp>
@@ -540,7 +540,7 @@ if (expensesCount &lt; 0) {
             </elementProp>
           </HTTPSamplerProxy>
           <hashTree>
-            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="RespAsertion: responseCode=200">
+            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="RespAsertion: responseCode=200" enabled="true">
               <collectionProp name="Asserion.test_strings">
                 <stringProp name="49586">200</stringProp>
               </collectionProp>
